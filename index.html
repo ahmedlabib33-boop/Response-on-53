@@ -586,6 +586,34 @@ mark{background:rgba(223,188,103,.3);color:#fff;padding:0 2px;border-radius:2px}
 .legend-before{border:1px solid var(--gold);background:repeating-linear-gradient(135deg,#dfbc67aa 0 3px,#dfbc6733 3px 6px)}
 .legend-after{background:linear-gradient(90deg,#dfbc6744,#dfbc67)}
 
+/* ---- Event 2 vertical Project Finish comparison ---- */
+.pf-vertical-card{margin-top:14px}
+.pf-vertical-card h5{margin-bottom:5px}
+.pf-chart-kicker{margin:0 0 18px;color:var(--dim);font-size:11px;line-height:1.5}
+.pf-vertical-desktop{position:relative;height:430px;padding:0 6px 82px 72px}
+.pf-y-axis{position:absolute;inset:0 auto 82px 0;width:64px;color:var(--dim);font-size:9px}
+.pf-y-axis span{position:absolute;right:7px;transform:translateY(50%);white-space:nowrap}
+.pf-plot-area{position:relative;height:100%;border-left:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.22)}
+.pf-gridline{position:absolute;left:0;right:0;border-top:1px solid rgba(255,255,255,.1)}
+.pf-groups{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.pf-group{position:relative;min-width:0;border-left:1px solid transparent;border-right:1px solid transparent}
+.pf-pair{position:absolute;inset:0 5px;display:flex;align-items:flex-end;justify-content:center;gap:10px}
+.pf-column{position:relative;width:min(31%,64px);height:100%}
+.pf-vbar{position:absolute;bottom:0;left:0;right:0;min-height:2px;border:1px solid color-mix(in srgb,var(--scenario-color) 76%,#fff 8%);border-bottom:0;border-radius:2px 2px 0 0;background:linear-gradient(180deg,color-mix(in srgb,var(--scenario-color) 92%,#fff 4%),color-mix(in srgb,var(--scenario-color) 55%,#07111d));box-shadow:0 0 22px color-mix(in srgb,var(--scenario-color) 12%,transparent)}
+.pf-column.before .pf-vbar{opacity:.72;background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--scenario-color) 72%,transparent) 0 6px,color-mix(in srgb,var(--scenario-color) 25%,transparent) 6px 11px)}
+.pf-v-label{position:absolute;left:50%;width:106px;transform:translate(-50%,-7px);color:var(--soft);font-size:9.5px;line-height:1.3;text-align:center;white-space:normal}
+.pf-v-label b{display:block;color:var(--gold2);font-size:10px;font-weight:700}
+.pf-column-state{position:absolute;left:50%;bottom:-21px;transform:translateX(-50%);color:var(--dim);font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.pf-delta{position:absolute;left:50%;transform:translate(-50%,50%);z-index:2;padding:4px 7px;border:1px solid color-mix(in srgb,var(--scenario-color) 48%,transparent);border-radius:2px;background:#0b1928;color:var(--scenario-color);font-size:9.5px;font-weight:800;white-space:nowrap;box-shadow:0 3px 12px rgba(0,0,0,.28)}
+.pf-group-caption{position:absolute;top:calc(100% + 30px);left:3px;right:3px;color:var(--body);font-size:10px;line-height:1.35;text-align:center}
+.pf-group-caption b{display:block;color:var(--scenario-color);font-size:10.5px}
+.pf-vertical-mobile{display:none}
+.pf-summary-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:8px;border:1px solid var(--line2);background:var(--line2)}
+.pf-summary-strip div{min-width:0;padding:10px 11px;background:rgba(7,17,29,.96);color:var(--dim);font-size:9.5px;line-height:1.4}
+.pf-summary-strip b{display:block;color:var(--scenario-color);font:500 19px/1.05 var(--serif);margin-bottom:3px}
+.pf-reconcile{margin-top:10px;padding:9px 11px;border-left:2px solid var(--gold);background:rgba(223,188,103,.045);color:var(--dim);font-size:10.5px;line-height:1.55}
+.pf-reconcile b{color:var(--gold2)}
+
 /* ---- Event 2 source bundle and embedded native PDFs ---- */
 .source-bundle-body{border:1px solid var(--line2);border-top:0;padding:14px;background:rgba(255,255,255,.012)}
 .source-bundle-title{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin:0 0 12px;padding:2px 2px 11px;border-bottom:1px solid var(--line2)}
@@ -657,6 +685,19 @@ mark{background:rgba(223,188,103,.3);color:#fff;padding:0 2px;border-radius:2px}
   .pdf-source-grid{grid-template-columns:1fr}
   .pdf-source-card>summary{min-height:72px}
   .pdf-source-frame{height:min(560px,62vh);min-height:330px}
+  .pf-vertical-desktop{display:none}
+  .pf-vertical-mobile{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .pf-mobile-card{--scenario-color:var(--gold);min-width:0;padding:10px 10px 9px;border:1px solid var(--line2);border-top:2px solid var(--scenario-color);background:linear-gradient(180deg,color-mix(in srgb,var(--scenario-color) 6%,transparent),rgba(255,255,255,.012))}
+  .pf-mobile-head{min-height:47px;color:var(--body);font-size:10px;line-height:1.35}
+  .pf-mobile-head b{display:block;color:var(--scenario-color);font-size:10.5px}
+  .pf-mobile-stage{position:relative;height:185px;margin:8px 4px 26px;border-left:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.22);background:repeating-linear-gradient(to top,transparent 0 45px,rgba(255,255,255,.08) 45px 46px)}
+  .pf-mobile-stage .pf-pair{inset:0 10px;gap:15px}
+  .pf-mobile-stage .pf-column{width:min(35%,58px)}
+  .pf-mobile-stage .pf-v-label{width:88px;font-size:8.5px}
+  .pf-mobile-stage .pf-v-label b{font-size:9px}
+  .pf-mobile-axis{display:flex;justify-content:space-between;margin-top:-19px;color:var(--dim);font-size:8px}
+  .pf-mobile-move{margin-top:8px;color:var(--scenario-color);font-size:11px;font-weight:700;text-align:center}
+  .pf-summary-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:420px){
   .e2-event-mobile{grid-template-columns:1fr}
@@ -665,6 +706,9 @@ mark{background:rgba(223,188,103,.3);color:#fff;padding:0 2px;border-radius:2px}
   .finish-dates{display:grid;grid-template-columns:1fr auto;align-items:start}
   .finish-dates span:last-child{grid-column:1/-1}
   .finish-move{text-align:right}
+  .pf-vertical-mobile{grid-template-columns:1fr}
+  .pf-mobile-head{min-height:0}
+  .pf-summary-strip{grid-template-columns:1fr 1fr}
 }
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
@@ -960,7 +1004,6 @@ body.unlocked{
     <main id="host"></main>
 
     <div class="foot">
-      <div>Every figure is calculated from the dates in the source documents. Quantum remains subject to concurrency review and native schedule verification.</div>
       <div>Events 1 &amp; 2</div>
     </div>
   </div>
@@ -1034,16 +1077,16 @@ const sgn=n=>(n>0?'+':'')+n;
 const BASE={gwf:'28-Jul-2026',pf:'06-Jul-2027'};
 
 const MODELS=[
- {k:'prosp',n:'Prospective time impact analysis',r:'Contractor submission — STR-104',gwf:'14-Oct-2026',pf:'15-Sep-2027',c:'#dfbc67',
+ {k:'prosp',n:'Prospective time impact analysis',r:'02 − 01 · PDF 01 → PDF 02',gwf:'14-Oct-2026',pfBefore:'06-Jul-2027',pf:'15-Sep-2027',c:'#dfbc67',
   m:'The event fragnet is added to the accepted programme at a data date of 17-Mar-2026, the day before the revised IFC package was issued. All accepted logic outside the fragnet is kept, so the recalculation measures the event by itself. Fragnet durations are the planned ones.'},
- {k:'actual',n:'Actual durations, logic kept',r:'Cross-check',gwf:'09-Sep-2026',pf:'12-Aug-2027',c:'#e0a349',
+ {k:'actual',n:'Actual durations, logic kept',r:'03 − 01 · PDF 01 → PDF 03',gwf:'09-Sep-2026',pfBefore:'06-Jul-2027',pf:'12-Aug-2027',c:'#e0a349',
   m:'The same model, but using the submission and approval durations that actually occurred. The 24 pre-existing relationships stay in place. This separates the question of durations from the question of logic.'},
- {k:'corr',n:'Engineer\u2019s method, corrected dates',r:'Reconstruction',gwf:'31-Aug-2026',pf:'27-Jul-2027',c:'#5fb0a5',
-  m:'Everything the Engineer did is kept, including removal of all 24 relationships. The only change is that the submittal and approval dates are corrected to match the Contractor\u2019s controlled shop-drawing log.'},
- {k:'eng',n:'Engineer\u2019s determination',r:'Letter 050',gwf:'12-Aug-2026',pf:'18-Jul-2027',c:'#6d8ba8',
+ {k:'corr',n:'Actual durations, 24 relationships removed',r:'05 − 04 · PDF 04 → PDF 05',gwf:'31-Aug-2026',pfBefore:'22-Jun-2027',pf:'27-Jul-2027',c:'#5fb0a5',
+  m:'Comparison 05 − 04 uses the actual-duration schedules with all 24 relationships removed. Project Finish moves from 22-Jun-2027 to 27-Jul-2027.'},
+ {k:'eng',n:'ACEPM Event 02 assessment',r:'ACEPM Letter 50',gwf:'12-Aug-2026',pfBefore:'06-Jul-2027',pf:'18-Jul-2027',c:'#6d8ba8',
   m:'Actual durations combined with removal of the 24 relationships, calculated on schedule dates that do not match the shop-drawing log.'}
 ];
-MODELS.forEach(m=>{m.dG=D(m.gwf,BASE.gwf);m.dP=D(m.pf,BASE.pf);});
+MODELS.forEach(m=>{m.dG=D(m.gwf,BASE.gwf);m.dP=D(m.pf,m.pfBefore);});
 const M=Object.fromEntries(MODELS.map(m=>[m.k,m]));
 
 const IFC_SCHEDULE_MOVEMENT=[
@@ -1611,6 +1654,79 @@ function e2Chart(){
   return c;
 }
 
+function e2VerticalChart(){
+  const c=chartBox('Event 2 — Project Finish movement comparison');
+  c.classList.add('pf-vertical-card');
+  c.appendChild(el('p','pf-chart-kicker','Four delay-analysis scenarios · Before vs After fragnet · one common calendar scale'));
+  const scaleStart=P('01-Jan-2027'),scaleEnd=P('15-Sep-2027');
+  const datePct=value=>Math.max(0,Math.min(100,(P(value)-scaleStart)/(scaleEnd-scaleStart)*100));
+  const ticks=[
+    ['01-Jan-2027','01 Jan'],['01-Mar-2027','01 Mar'],['01-May-2027','01 May'],
+    ['01-Jul-2027','01 Jul'],['01-Sep-2027','01 Sep']
+  ];
+
+  const desktop=el('div','pf-vertical-desktop');
+  desktop.setAttribute('role','img');
+  desktop.setAttribute('aria-label','Four Event 2 scenarios comparing Project Finish before and after the fragnet on one common calendar scale.');
+  const yAxis=el('div','pf-y-axis');
+  ticks.forEach(t=>{const label=el('span',null,t[1]);label.style.bottom=datePct(t[0])+'%';yAxis.appendChild(label);});
+  desktop.appendChild(yAxis);
+  const plot=el('div','pf-plot-area');
+  ticks.forEach(t=>{const line=el('span','pf-gridline');line.style.bottom=datePct(t[0])+'%';plot.appendChild(line);});
+  const groups=el('div','pf-groups');
+  IFC_SCHEDULE_MOVEMENT.forEach(d=>{
+    const group=el('article','pf-group');group.style.setProperty('--scenario-color',d.color);
+    const pair=el('div','pf-pair');
+    const makeColumn=(kind,date,dateIso,floatValue)=>{
+      const column=el('div','pf-column '+kind);
+      const height=datePct(dateIso);
+      const bar=el('span','pf-vbar');bar.style.height=height+'%';column.appendChild(bar);
+      const label=el('span','pf-v-label','<b>'+date+'</b>TF '+floatValue+' d');label.style.bottom=height+'%';column.appendChild(label);
+      column.appendChild(el('span','pf-column-state',kind));
+      return column;
+    };
+    pair.appendChild(makeColumn('before',d.pfBefore,d.pfBeforeIso,d.tfBeforeN));
+    pair.appendChild(makeColumn('after',d.pfAfter,d.pfAfterIso,d.tfAfterN));
+    const delta=el('span','pf-delta','+'+d.movement+' days');
+    delta.style.bottom=Math.min(96,Math.max(datePct(d.pfBeforeIso),datePct(d.pfAfterIso))+5)+'%';
+    pair.appendChild(delta);group.appendChild(pair);
+    group.appendChild(el('div','pf-group-caption','<b>'+d.source+'</b>'+d.scenario));
+    groups.appendChild(group);
+  });
+  plot.appendChild(groups);desktop.appendChild(plot);c.appendChild(desktop);
+
+  const mobile=el('div','pf-vertical-mobile');
+  IFC_SCHEDULE_MOVEMENT.forEach(d=>{
+    const card=el('article','pf-mobile-card');card.style.setProperty('--scenario-color',d.color);
+    card.appendChild(el('div','pf-mobile-head','<b>'+d.source+'</b>'+d.scenario));
+    const stage=el('div','pf-mobile-stage');
+    stage.setAttribute('role','img');
+    stage.setAttribute('aria-label',d.scenario+': Project Finish moves from '+d.pfBefore+' to '+d.pfAfter+', '+d.movement+' calendar days.');
+    const pair=el('div','pf-pair');
+    const makeMobileColumn=(kind,date,dateIso,floatValue)=>{
+      const column=el('div','pf-column '+kind);
+      const height=datePct(dateIso);
+      const bar=el('span','pf-vbar');bar.style.height=height+'%';column.appendChild(bar);
+      const label=el('span','pf-v-label','<b>'+date+'</b>TF '+floatValue+' d');label.style.bottom=height+'%';column.appendChild(label);
+      column.appendChild(el('span','pf-column-state',kind));
+      return column;
+    };
+    pair.appendChild(makeMobileColumn('before',d.pfBefore,d.pfBeforeIso,d.tfBeforeN));
+    pair.appendChild(makeMobileColumn('after',d.pfAfter,d.pfAfterIso,d.tfAfterN));
+    stage.appendChild(pair);card.appendChild(stage);
+    card.appendChild(el('div','pf-mobile-axis','<span>01 Jan 2027</span><span>15 Sep 2027</span>'));
+    card.appendChild(el('div','pf-mobile-move','+'+d.movement+' calendar days'));
+    mobile.appendChild(card);
+  });
+  c.appendChild(mobile);
+  c.appendChild(el('div','lgd','<span><i class="legend-before"></i>Before fragnet</span><span><i class="legend-after"></i>After fragnet</span><span>Bar height represents the Project Finish date on the shared 2027 calendar scale.</span>'));
+  const summary=el('div','pf-summary-strip');
+  IFC_SCHEDULE_MOVEMENT.forEach(d=>{const item=el('div');item.style.setProperty('--scenario-color',d.color);item.appendChild(el('b',null,'+'+d.movement+' days'));item.appendChild(document.createTextNode(d.source+' · '+d.scenario));summary.appendChild(item);});
+  c.appendChild(summary);
+  c.appendChild(el('div','pf-reconcile','<b>Key reconciliation:</b> removing the 24 relationships changes the actual-date impact by only 2 days (37 → 35), while the Engineer’s assessment is 12 days.'));
+  return c;
+}
+
 function scheduleMovementTable(){
   const block=el('section','schedule-movement');
   block.appendChild(el('h3','s','Schedule comparison from the supplied workbook'));
@@ -1658,18 +1774,14 @@ PANES.dash=()=>{
   const g=el('div','grid g4');
   g.appendChild(stat('Event 1 — steel, Batch No. 2','0 days','Acknowledged as a valid, notified event capable of giving rise to an extension. No days determined; assessment deferred until Batch No. 3 closes.','red'));
   g.appendChild(stat('Batch No. 2 as submitted',days(B2.dP),'Movement of Project Finish from '+F(B2.pb)+' to '+F(B2.pa)+'. The batch is complete and the analysis is finished.'));
-  g.appendChild(stat('Event 2 — determined',days(M.eng.dP),'Against '+days(M.prosp.dP)+' submitted. Awarded at Project Finish under Letter 050.','amb'));
-  g.appendChild(stat('Event 2 — floor',days(M.corr.dP),'The Engineer\u2019s own method, with only the dates corrected to the shop-drawing log.','teal'));
+  g.appendChild(stat('Event 2 — prospective TIA',days(M.prosp.dP),'Comparison 02 − 01: Project Finish 06-Jul-2027 → 15-Sep-2027.','amb'));
+  g.appendChild(stat('Event 2 — ACEPM assessment',days(M.eng.dP),'ACEPM Letter 50: Project Finish 06-Jul-2027 → 18-Jul-2027.','teal'));
   f.appendChild(g);
 
-  f.appendChild(el('h3','s','The Event 2 gap is three separate questions'));
-  f.appendChild(el('p',null,'The difference between the submitted '+days(M.prosp.dP)+' and the determined '+days(M.eng.dP)+' is '+days(M.prosp.dP-M.eng.dP)+' at Project Finish. It does not come from one disagreement. It splits into three, and they are not of equal weight.'));
-  f.appendChild(wf('p'));
-
-  const g2=el('div','grid g3');
-  g2.appendChild(stat('A question of method',days(M.prosp.dP-M.actual.dP),'Planned durations against durations that actually occurred. Reasonable analysts differ, and the standard recognises both.','amb'));
-  g2.appendChild(stat('A question of logic',days(M.actual.dP-M.corr.dP),'The effect of removing 24 relationships that were in the approved baseline before the event.','amb'));
-  g2.appendChild(stat('A question of fact',days(M.corr.dP-M.eng.dP),'Schedule dates that do not match the Contractor\u2019s controlled shop-drawing log.','red'));
+  f.appendChild(el('h3','s','Event 2 — four workbook scenarios'));
+  f.appendChild(el('p',null,'The Event 2 results are taken directly from IFC sch movement.xlsx: 71, 37, 35 and 12 calendar days. Only these four supplied workbook scenarios are used in this app.'));
+  const g2=el('div','grid g4');
+  IFC_SCHEDULE_MOVEMENT.forEach(d=>g2.appendChild(stat(d.source,days(d.movement),d.scenario+': '+d.pfBefore+' → '+d.pfAfter+'.',d.key==='engineer'?'red':d.key==='logic-removed'?'teal':'amb')));
   f.appendChild(g2);
 
   f.appendChild(el('h3','s','What is agreed'));
@@ -1810,6 +1922,7 @@ PANES.e2_what=()=>{
   f.appendChild(shot('event2Evidence','<b>Event No. 2 — combined evidence.</b> Consultant reply sheets for STR-044 / STR-046 / STR-054 / STR-055 together with the ACEPM planning analysis and schedule extracts used to compare the approval dates.'));
 
   f.appendChild(e2Chart());
+  f.appendChild(e2VerticalChart());
   f.appendChild(scheduleMovementTable());
   f.appendChild(el('div','ev','<b>'+D('04-May-2026','18-Mar-2026')+' calendar days</b> between the revised package and closure of the resulting queries. The Engineer accepted that this period affected the critical path of the approved programme.'));
   f.appendChild(ifcScheduleSources());
@@ -1817,8 +1930,8 @@ PANES.e2_what=()=>{
 };
 PANES.e2_models=()=>{
   const f=document.createDocumentFragment();
-  f.appendChild(el('h2','t','Four ways of measuring the same event'));
-  f.appendChild(el('p','lede','All four start from the same accepted programme. They differ in what durations are used and whether the existing logic is kept.'));
+  f.appendChild(el('h2','t','Four source-backed Event 2 scenarios'));
+  f.appendChild(el('p','lede','These four results reproduce IFC sch movement.xlsx. Each movement is calculated from its own Before and After schedule pair; comparison 05 − 04 therefore starts from 22-Jun-2027, not 06-Jul-2027.'));
 
   const maxv=Math.max(...MODELS.map(m=>m.dP))*1.06;
   const box=el('div');
@@ -1833,29 +1946,30 @@ PANES.e2_models=()=>{
     setTimeout(()=>{b.style.width=(m.dP/maxv*100)+'%';},120+i*130);
   });
   f.appendChild(box);
-  f.appendChild(el('div','ev','Movement of Project Finish from the agreed baseline of '+F(BASE.pf)+'. Ground Works Finish moves '+MODELS.map(m=>sgn(m.dG)).join(' / ')+' respectively, from '+F(BASE.gwf)+'.'));
+  f.appendChild(el('div','ev','Project Finish movements from the four workbook comparisons: '+IFC_SCHEDULE_MOVEMENT.map(d=>d.source+' = '+d.pfMovement).join(' · ')+'.'));
 
   const g=el('div','grid g2');
   MODELS.forEach(m=>{
     const c=el('div','card'+(m.k==='prosp'?' gold':m.k==='corr'?' teal':m.k==='eng'?' red':''));
     c.appendChild(el('h4',null,m.n));
     c.appendChild(el('p',null,m.m));
-    c.appendChild(el('div','ev','<b>'+F(m.gwf)+'</b> Ground Works · '+sgn(m.dG)+' &nbsp;|&nbsp; <b>'+F(m.pf)+'</b> Project Finish · '+sgn(m.dP)));
+    c.appendChild(el('div','ev','<b>'+F(m.pfBefore)+'</b> Before &nbsp;→&nbsp; <b>'+F(m.pf)+'</b> After &nbsp;·&nbsp; <span class="str">+'+m.dP+' days</span>'));
     g.appendChild(c);
   });
   f.appendChild(g);
-  f.appendChild(shot('corrected','<b>Corrected-date model.</b> The Engineer\u2019s treatment kept in full, with the dates matched to the shop-drawing log. Ground Works Finish 31-Aug-2026, Project Finish 27-Jul-2027.'));
+  f.appendChild(el('div','ev','<b>Workbook control:</b> 02 − 01 = 71 days; 03 − 01 = 37 days; 05 − 04 = 35 days; ACEPM Letter 50 = 12 days.'));
   return f;
 };
 PANES.e2_gap=()=>{
   const f=document.createDocumentFragment();
-  f.appendChild(el('h2','t','Where the days went'));
-  f.appendChild(el('p','lede','Read from left to right. Each step isolates one variable, so the effect of each can be discussed on its own instead of as a single disagreement about the answer.'));
-  f.appendChild(el('h3','s','Project Finish'));
-  f.appendChild(wf('p'));
-  f.appendChild(el('h3','s','Ground Works Finish'));
-  f.appendChild(wf('g'));
-  f.appendChild(el('div','ev','The first reduction is a difference of professional method, and it is recognised in the standard both parties rely on. The second requires justification relationship by relationship. The third is not a matter of opinion.'));
+  f.appendChild(el('h2','t','How the four Event 2 results compare'));
+  f.appendChild(el('p','lede','This view compares the movements reported by the four schedule pairs. It does not treat them as one continuous waterfall because comparison 05 − 04 has a different Before date.'));
+  const g=el('div','grid g3');
+  g.appendChild(stat('Prospective vs actual logic kept','34 days','71-day comparison 02 − 01 versus 37-day comparison 03 − 01.','amb'));
+  g.appendChild(stat('Logic kept vs logic removed','2 days','37-day comparison 03 − 01 versus 35-day comparison 05 − 04.','teal'));
+  g.appendChild(stat('Logic-removed scenario vs ACEPM','23 days','35-day comparison 05 − 04 versus the 12-day ACEPM assessment.','red'));
+  f.appendChild(g);
+  f.appendChild(el('div','ev','These are differences between the supplied scenario results. They are not a substitute for a native P6 causation or entitlement analysis.'));
   f.appendChild(shot('assess','<b>Letter 050, planning attachment, final page.</b> The Engineer\u2019s own before-and-after result: Ground Slab Works 28-Jul-26 to 12-Aug-26, Project Finish 06-Jul-27 to 18-Jul-27, differences of +15 and +12.'));
   return f;
 };
@@ -1870,7 +1984,7 @@ PANES.dt_find=()=>{
   g.appendChild(stat('ACEPM matching','0 of 8','Each ACEPM-used date diverges from the verified reply date.','red'));
   g.appendChild(stat('Largest divergence',days(Math.max(...E2_APPROVALS.map(d=>Math.abs(d.gap)))),'STR-054 Rev.2 — 09-Mar-2026 used versus 01-Jun-2026 verified.','red'));
   g.appendChild(stat('SAMCO matching','8 of 8','The correction exercise uses the verified reply date in every row.','teal'));
-  g.appendChild(stat('Effect on the existing result',sgn(M.corr.dP-M.eng.dP)+' days','Existing corrected-date model versus Letter 050 at Project Finish. A new quantum needs a native schedule re-run.','teal'));
+  g.appendChild(stat('Event 2 workbook range','12–71 days','The four supplied schedule comparisons report 71, 37, 35 and 12 days at Project Finish.','teal'));
   f.appendChild(g);
 
   f.appendChild(el('h3','s','The record that cannot stand'));
@@ -1897,18 +2011,16 @@ PANES.dt_tbl=()=>{
    ]),'1120px'));
   f.appendChild(el('h3','s','What changed with the new evidence'));
   f.appendChild(el('p',null,'For STR-055 Rev.02, the final attached Consultant reply is '+F('21-Jun-2026')+'. ACEPM used '+F('21-May-2026')+', so the current supported variance is <span class="str">-31 days</span>. The earlier draft discussion based on an STR-055 Rev.00 return of 05-Apr-2026 is superseded and has been removed.'));
-  f.appendChild(el('div','ev','<b>Quantum control:</b> the supplied workbook shows the SAMCO exercise already uses the verified reply date in all eight rows. Therefore this evidence strengthens the factual input case, but it does not by itself justify changing the existing 21-day corrected-date result. Any revised day entitlement must come from a controlled native P6 re-run with the same settings and only the verified dates changed.'));
+  f.appendChild(el('div','ev','<b>Quantum control:</b> the Event 2 scenario values used throughout this app are the four results in IFC sch movement.xlsx: 71, 37, 35 and 12 days. The approval-date evidence remains an input check; contractual reliance still requires a controlled native P6 review.'));
   return f;
 };
 PANES.dt_eff=()=>{
   const f=document.createDocumentFragment();
-  f.appendChild(el('h2','t','What correcting the dates does'));
-  f.appendChild(el('p','lede','This test changes one thing only. The Engineer\u2019s method is kept in full, including removal of all twenty-four relationships. Only the submittal and approval dates are matched to the log.'));
-  f.appendChild(tbl([{h:'Milestone'},{h:'Baseline',cls:'num'},{h:'Determination',cls:'num'},{h:'With corrected dates',cls:'num'},{h:'Difference',cls:'num'}],[
-   ['<span class="str">Ground Works Finish</span>',F(BASE.gwf),F(M.eng.gwf)+' ('+sgn(M.eng.dG)+')',F(M.corr.gwf)+' ('+sgn(M.corr.dG)+')','<span class="pill p-teal">'+sgn(M.corr.dG-M.eng.dG)+'</span>'],
-   ['<span class="str">Project Finish</span>',F(BASE.pf),F(M.eng.pf)+' ('+sgn(M.eng.dP)+')',F(M.corr.pf)+' ('+sgn(M.corr.dP)+')','<span class="pill p-teal">'+sgn(M.corr.dP-M.eng.dP)+'</span>']
-  ],'760px'));
-  f.appendChild(el('p',null,'This is the figure that requires no agreement about method, logic or concurrency. It is the Engineer\u2019s own approach applied to accurate inputs, and it produces '+days(M.corr.dP)+' at Project Finish rather than '+days(M.eng.dP)+'.'));
+  f.appendChild(el('h2','t','Event 2 schedule-result control'));
+  f.appendChild(el('p','lede','The approval-date check validates inputs. The resulting Event 2 day values shown in the app are controlled separately by IFC sch movement.xlsx.'));
+  f.appendChild(tbl([{h:'Comparison'},{h:'Scenario'},{h:'Project Finish — Before',cls:'num'},{h:'Project Finish — After',cls:'num'},{h:'Movement',cls:'num'}],
+   IFC_SCHEDULE_MOVEMENT.map(d=>['<span class="str">'+d.source+'</span>',d.scenario,d.pfBefore,d.pfAfter,'<span class="pill p-teal">'+d.pfMovement+'</span>']),'900px'));
+  f.appendChild(el('p',null,'The controlled Event 2 results are 71, 37, 35 and 12 days. No separate unsupported scenario is carried in this app.'));
   return f;
 };
 
