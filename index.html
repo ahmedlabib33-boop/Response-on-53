@@ -1950,7 +1950,6 @@ PANES.e2_what=()=>{
   f.appendChild(shot('event2Evidence','<b>Event No. 2 — combined evidence.</b> Consultant reply sheets for STR-044 / STR-046 / STR-054 / STR-055 together with the ACEPM planning analysis and schedule extracts used to compare the approval dates.'));
 
   f.appendChild(e2Chart());
-  f.appendChild(e2VerticalChart());
   f.appendChild(scheduleMovementTable());
   f.appendChild(el('div','ev','<b>'+D('04-May-2026','18-Mar-2026')+' calendar days</b> between the revised package and closure of the resulting queries. The Engineer accepted that this period affected the critical path of the approved programme.'));
   f.appendChild(ifcScheduleSources());
@@ -1960,21 +1959,7 @@ PANES.e2_models=()=>{
   const f=document.createDocumentFragment();
   f.appendChild(el('h2','t','Four source-backed Event 2 scenarios'));
   f.appendChild(el('p','lede','These four results reproduce IFC sch movement.xlsx. Each movement is calculated from its own Before and After schedule pair; comparison 05 − 04 therefore starts from 22-Jun-2027, not 06-Jul-2027.'));
-
-  const maxv=Math.max(...MODELS.map(m=>m.dP))*1.06;
-  const box=el('div');
-  MODELS.forEach((m,i)=>{
-    const r=el('div','tlrow');
-    r.appendChild(el('div','tlname','<b>'+m.n+'</b>'+m.r));
-    const tr=el('div','tltrack'),b=el('div','tlbar');
-    b.style.background='linear-gradient(90deg,'+m.c+'22,'+m.c+'cc)';
-    tr.appendChild(b);r.appendChild(tr);
-    const dd=el('div','tldays',sgn(m.dP));dd.style.color=m.c;r.appendChild(dd);
-    box.appendChild(r);
-    setTimeout(()=>{b.style.width=(m.dP/maxv*100)+'%';},120+i*130);
-  });
-  f.appendChild(box);
-  f.appendChild(el('div','ev','Project Finish movements from the four workbook comparisons: '+IFC_SCHEDULE_MOVEMENT.map(d=>d.source+' = '+d.pfMovement).join(' · ')+'.'));
+  f.appendChild(e2VerticalChart());
 
   const g=el('div','grid g2');
   MODELS.forEach(m=>{
