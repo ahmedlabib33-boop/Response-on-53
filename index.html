@@ -552,6 +552,63 @@ mark{background:rgba(223,188,103,.3);color:#fff;padding:0 2px;border-radius:2px}
 .lagzero{position:absolute;left:0;top:-3px;bottom:-3px;width:2px;background:var(--coral)}
 .lagval{font-family:var(--serif);font-size:17px;color:var(--gold2);white-space:nowrap}
 
+/* ---- Event 2 comparison: paired float bars + one Project Finish time scale ---- */
+.e2-event-mobile{display:none;margin:5px 0 18px;padding:0;list-style:none}
+.scenario-comparison{margin-top:17px;border-top:1px solid var(--line2)}
+.scenario-headings,.scenario-row{display:grid;grid-template-columns:minmax(190px,1.08fr) minmax(280px,1.35fr) minmax(310px,1.55fr);gap:18px}
+.scenario-headings{padding:10px 12px;color:var(--dim);font-size:10px;letter-spacing:.075em;text-transform:uppercase;background:rgba(255,255,255,.018);border-bottom:1px solid var(--line2)}
+.scenario-row{position:relative;align-items:center;padding:15px 12px 15px 15px;border-bottom:1px solid var(--line2);border-left:3px solid var(--scenario-color);background:linear-gradient(90deg,color-mix(in srgb,var(--scenario-color) 5%,transparent),transparent 30%)}
+.scenario-identity{min-width:0;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:9px;align-items:start}
+.scenario-identity .scenario-source{grid-row:1/3;min-width:58px;padding:5px 7px;border:1px solid color-mix(in srgb,var(--scenario-color) 55%,transparent);border-radius:2px;color:var(--scenario-color);font:700 10.5px/1.2 "Segoe UI",Arial,sans-serif;text-align:center}
+.scenario-identity b{color:var(--soft);font-size:12.5px;line-height:1.4}
+.scenario-identity small{margin-top:3px;color:var(--dim);font-size:10px;line-height:1.35}
+.scenario-floats{min-width:0}
+.float-line{display:grid;grid-template-columns:45px minmax(0,1fr) 52px;gap:7px;align-items:center;margin:4px 0}
+.float-label{color:var(--dim);font-size:10px}
+.float-track{position:relative;height:13px;border-radius:2px;background:rgba(255,255,255,.045);overflow:hidden}
+.float-fill{height:100%;min-width:2px;border-radius:2px;background:linear-gradient(90deg,color-mix(in srgb,var(--scenario-color) 28%,transparent),var(--scenario-color))}
+.float-line.before .float-fill{opacity:.48;background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--scenario-color) 70%,transparent) 0 5px,color-mix(in srgb,var(--scenario-color) 25%,transparent) 5px 9px)}
+.float-value{color:var(--soft);font:600 10.5px/1.2 "Segoe UI",Arial,sans-serif;text-align:right;white-space:nowrap}
+.float-change{margin-top:5px;color:var(--scenario-color);font-size:9.5px;text-align:right}
+.scenario-finish{min-width:0}
+.finish-rail{position:relative;height:24px;margin:0 9px;background:linear-gradient(180deg,transparent 11px,rgba(255,255,255,.13) 11px,rgba(255,255,255,.13) 13px,transparent 13px)}
+.finish-rail:before,.finish-rail:after{content:"";position:absolute;top:7px;width:1px;height:10px;background:rgba(255,255,255,.24)}
+.finish-rail:before{left:0}.finish-rail:after{right:0}
+.finish-route{position:absolute;top:10px;height:4px;min-width:2px;border-radius:5px;background:linear-gradient(90deg,color-mix(in srgb,var(--scenario-color) 40%,transparent),var(--scenario-color))}
+.finish-marker{position:absolute;top:3px;width:18px;height:18px;margin-left:-9px;border-radius:50%;display:grid;place-items:center;font:800 8px/1 "Segoe UI",Arial,sans-serif;box-shadow:0 0 0 2px #0b1928}
+.finish-marker.before{border:1px solid var(--scenario-color);background:#0b1928;color:var(--scenario-color)}
+.finish-marker.after{border:1px solid var(--scenario-color);background:var(--scenario-color);color:#07111d}
+.finish-dates{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px;color:var(--dim);font-size:9.5px;line-height:1.35}
+.finish-dates b{color:var(--soft);font-weight:600}
+.finish-move{color:var(--scenario-color);font-weight:700;text-align:center}
+.finish-axis{width:calc(39% - 4px);margin:9px 0 0 auto;display:flex;justify-content:space-between;gap:8px;color:var(--dim);font-size:9px}
+.axis-caption{color:var(--body);text-align:center}
+.legend-before{border:1px solid var(--gold);background:repeating-linear-gradient(135deg,#dfbc67aa 0 3px,#dfbc6733 3px 6px)}
+.legend-after{background:linear-gradient(90deg,#dfbc6744,#dfbc67)}
+
+/* ---- Event 2 source bundle and embedded native PDFs ---- */
+.source-bundle-body{border:1px solid var(--line2);border-top:0;padding:14px;background:rgba(255,255,255,.012)}
+.source-bundle-title{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin:0 0 12px;padding:2px 2px 11px;border-bottom:1px solid var(--line2)}
+.source-bundle-title b{color:var(--gold2);font:500 16px/1.3 var(--serif)}
+.source-bundle-title span{max-width:600px;color:var(--dim);font-size:10.5px;line-height:1.55;text-align:right}
+.source-bundle-body>.shot{margin:0}
+.pdf-source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+.pdf-source-card{min-width:0;border:1px solid var(--line2);border-radius:3px;background:rgba(255,255,255,.018);overflow:hidden}
+.pdf-source-card>summary{display:grid;grid-template-columns:52px minmax(0,1fr);gap:10px;align-items:start;min-height:66px;padding:11px;cursor:pointer;list-style:none;touch-action:manipulation}
+.pdf-source-card>summary::-webkit-details-marker{display:none}
+.pdf-source-card>summary:hover,.pdf-source-card[open]>summary{background:rgba(223,188,103,.055)}
+.pdf-source-card>summary:focus-visible{outline:2px solid var(--gold);outline-offset:-3px}
+.pdf-source-no{padding:6px 5px;border:1px solid rgba(223,188,103,.42);border-radius:2px;color:var(--gold);font-size:10px;font-weight:700;text-align:center}
+.pdf-source-copy{min-width:0}
+.pdf-source-copy b{display:block;color:var(--soft);font-size:11.5px;line-height:1.45}
+.pdf-source-copy small{display:block;margin-top:4px;color:var(--dim);font-size:9.5px;line-height:1.45}
+.pdf-source-content{padding:0 10px 10px;border-top:1px solid var(--line2)}
+.pdf-source-actions{display:flex;justify-content:flex-end;padding:8px 0}
+.pdf-open{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:7px 11px;border:1px solid rgba(223,188,103,.38);border-radius:2px;color:var(--gold2);font-size:10.5px;text-decoration:none}
+.pdf-open:hover{background:rgba(223,188,103,.09)}
+.pdf-open:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.pdf-source-frame{display:block;width:100%;height:min(680px,72vh);border:1px solid #c7ccd1;border-radius:2px;background:#fff}
+
 /* ---- arabic ---- */
 .ar{direction:rtl;text-align:right;font-family:"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.9}
 .ar h4{font-size:15px}
@@ -578,6 +635,36 @@ mark{background:rgba(223,188,103,.3);color:#fff;padding:0 2px;border-radius:2px}
   .byline{text-align:left}
   .press{width:140px;height:140px}
   .morse{font-size:5px;right:8px}
+  .scenario-headings,.scenario-row{grid-template-columns:minmax(170px,.95fr) minmax(235px,1.2fr) minmax(280px,1.45fr);gap:12px}
+}
+@media(max-width:960px){
+  .e2-event-desktop{display:none}
+  .e2-event-mobile{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .e2-event-mobile li{position:relative;min-width:0;padding:9px 9px 9px 13px;border:1px solid var(--line2);border-left:2px solid rgba(255,255,255,.22);background:rgba(255,255,255,.018)}
+  .e2-event-mobile li.major{border-left-color:var(--gold);background:rgba(223,188,103,.045)}
+  .e2-event-mobile time{display:block;color:var(--gold);font-size:9.5px;font-weight:700}
+  .e2-event-mobile span{display:block;margin-top:3px;color:var(--body);font-size:10.5px;line-height:1.35}
+  .scenario-headings{display:none}
+  .scenario-comparison{border-top:0}
+  .scenario-row{display:grid;grid-template-columns:1fr;gap:12px;margin:10px 0;padding:13px 11px;border:1px solid var(--line2);border-left:3px solid var(--scenario-color);border-radius:3px}
+  .scenario-identity b{font-size:12px}
+  .float-line{grid-template-columns:43px minmax(0,1fr) 50px}
+  .finish-rail{margin-top:2px}
+  .finish-dates{font-size:9.5px}
+  .finish-axis{width:100%;margin:8px 0 0}
+  .source-bundle-title{display:block}
+  .source-bundle-title span{display:block;margin-top:6px;text-align:left}
+  .pdf-source-grid{grid-template-columns:1fr}
+  .pdf-source-card>summary{min-height:72px}
+  .pdf-source-frame{height:min(560px,62vh);min-height:330px}
+}
+@media(max-width:420px){
+  .e2-event-mobile{grid-template-columns:1fr}
+  .source-bundle-body{padding:9px}
+  .pdf-source-card>summary{grid-template-columns:46px minmax(0,1fr);padding:10px 8px}
+  .finish-dates{display:grid;grid-template-columns:1fr auto;align-items:start}
+  .finish-dates span:last-child{grid-column:1/-1}
+  .finish-move{text-align:right}
 }
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
@@ -960,10 +1047,18 @@ MODELS.forEach(m=>{m.dG=D(m.gwf,BASE.gwf);m.dP=D(m.pf,BASE.pf);});
 const M=Object.fromEntries(MODELS.map(m=>[m.k,m]));
 
 const IFC_SCHEDULE_MOVEMENT=[
- {source:'02 − 01',scenario:'Prospective time impact analysis',tfBefore:'-87 d',tfAfter:'-158 d',tfMovement:'-71 d',pfBefore:'6-Jul-27',pfAfter:'15-Sep-27',pfMovement:'+71 d delay'},
- {source:'03 − 01',scenario:'Actual durations, logic kept (24 RELATION KEPT)',tfBefore:'-87 d',tfAfter:'-124 d',tfMovement:'-37 d',pfBefore:'6-Jul-27',pfAfter:'12-Aug-27',pfMovement:'+37 d delay'},
- {source:'05 − 04',scenario:'Actual durations, logic Removed (24 RELATION rEMOVED)',tfBefore:'-73 d',tfAfter:'-108 d',tfMovement:'-35 d',pfBefore:'22-Jun-27',pfAfter:'27-Jul-27',pfMovement:'+35 d delay'},
- {source:'ACEPM Letter 50',scenario:'ACEPM Event 02 Assessment',tfBefore:'-87 d',tfAfter:'-99 d',tfMovement:'-12 d',pfBefore:'6-Jul-27',pfAfter:'18-Jul-27',pfMovement:'+12 d delay'}
+ {key:'prospective',source:'02 − 01',scenario:'Prospective time impact analysis',tfBefore:'-87 d',tfAfter:'-158 d',tfBeforeN:-87,tfAfterN:-158,tfMovement:'-71 d',pfBefore:'6-Jul-27',pfAfter:'15-Sep-27',pfBeforeIso:'06-Jul-2027',pfAfterIso:'15-Sep-2027',pfMovement:'+71 d delay',movement:71,color:'#dfbc67',sourcePair:'PDF 01 → PDF 02'},
+ {key:'logic-kept',source:'03 − 01',scenario:'Actual durations, original logic kept (24 relationships)',tfBefore:'-87 d',tfAfter:'-124 d',tfBeforeN:-87,tfAfterN:-124,tfMovement:'-37 d',pfBefore:'6-Jul-27',pfAfter:'12-Aug-27',pfBeforeIso:'06-Jul-2027',pfAfterIso:'12-Aug-2027',pfMovement:'+37 d delay',movement:37,color:'#e0a349',sourcePair:'PDF 01 → PDF 03'},
+ {key:'logic-removed',source:'05 − 04',scenario:'Actual durations, 24 relationships removed',tfBefore:'-73 d',tfAfter:'-108 d',tfBeforeN:-73,tfAfterN:-108,tfMovement:'-35 d',pfBefore:'22-Jun-27',pfAfter:'27-Jul-27',pfBeforeIso:'22-Jun-2027',pfAfterIso:'27-Jul-2027',pfMovement:'+35 d delay',movement:35,color:'#5fb0a5',sourcePair:'PDF 04 → PDF 05'},
+ {key:'engineer',source:'ACEPM Letter 50',scenario:'Engineer’s Event 02 assessment',tfBefore:'-87 d',tfAfter:'-99 d',tfBeforeN:-87,tfAfterN:-99,tfMovement:'-12 d',pfBefore:'6-Jul-27',pfAfter:'18-Jul-27',pfBeforeIso:'06-Jul-2027',pfAfterIso:'18-Jul-2027',pfMovement:'+12 d delay',movement:12,color:'#6d8ba8',sourcePair:'Letter 050, page 5'}
+];
+
+const IFC_SCHEDULE_PDFS=[
+ {no:'01',title:'Prospective time impact analysis - before fragnet',role:'Before model for comparisons 02 − 01 and 03 − 01',pages:1,file:'evidence/ifc-schedules/01-prospective-before-fragnet.pdf'},
+ {no:'02',title:'Prospective time impact analysis - after fragnet',role:'After model for comparison 02 − 01',pages:2,file:'evidence/ifc-schedules/02-prospective-after-fragnet.pdf'},
+ {no:'03',title:'Actual durations with the original 24 relationships kept',role:'After model for comparison 03 − 01',pages:1,file:'evidence/ifc-schedules/03-actual-durations-logic-kept.pdf'},
+ {no:'04',title:'Actual durations with 24 relationships removed - before fragnet',role:'Before model for comparison 05 − 04',pages:1,file:'evidence/ifc-schedules/04-actual-durations-logic-removed-before-fragnet.pdf'},
+ {no:'05',title:'Actual durations with 24 relationships removed - after fragnet',role:'After model for comparison 05 − 04',pages:1,file:'evidence/ifc-schedules/05-actual-durations-logic-removed-after-fragnet.pdf'}
 ];
 
 const B2={gb:'26-May-2026',ga:'29-Sep-2026',pb:'12-May-2027',pa:'06-Sep-2027'};
@@ -1296,9 +1391,7 @@ function stat(lab,val,foot,cls){
   c.appendChild(el('div','foot',foot));return c;
 }
 function quote(q,src){const b=el('blockquote','quote','“'+q+'”');b.appendChild(el('span','src',src));return b;}
-function shot(key,cap,open){
-  const d=el('details','shotwrap'); if(open)d.open=true;
-  d.appendChild(el('summary',null,'Show the source page'));
+function shotBox(key,cap){
   const box=el('div','shot');
   const plainCap=cap.replace(/<[^>]+>/g,'');
   const value=SHOTS[key];
@@ -1318,8 +1411,46 @@ function shot(key,cap,open){
       const pageCap=document.createElement('figcaption');pageCap.textContent=label;page.appendChild(pageCap);box.appendChild(page);
     }else box.appendChild(img);
   });
+  return box;
+}
+function shot(key,cap,open){
+  const d=el('details','shotwrap'); if(open)d.open=true;
+  d.appendChild(el('summary',null,'Show the source page'));
+  const box=shotBox(key,cap);
   d.appendChild(box);
   d.appendChild(el('div','shotcap',cap));
+  return d;
+}
+
+function ifcScheduleSources(){
+  const d=el('details','shotwrap schedule-source-bundle');
+  d.appendChild(el('summary',null,'Show the source page'));
+  const body=el('div','source-bundle-body');
+  body.appendChild(el('div','source-bundle-title','<b>Letter 050 and five native schedule PDFs</b><span>The schedule files remain embedded at their original quality. Open any card to read it here, or use Open PDF for the browser’s full reader.</span>'));
+  body.appendChild(shotBox('e2Det','Letter 050, page 5'));
+  body.appendChild(el('div','shotcap','<b>Letter 050, page 5.</b> The Engineer accepts the critical-path effect and determines 15 days against Section 1 and 12 days against Section 2.'));
+  const grid=el('div','pdf-source-grid');
+  IFC_SCHEDULE_PDFS.forEach(doc=>{
+    const card=el('details','pdf-source-card');
+    const summary=el('summary');
+    summary.appendChild(el('span','pdf-source-no','PDF '+doc.no));
+    const copy=el('span','pdf-source-copy');
+    copy.appendChild(el('b',null,doc.title));
+    copy.appendChild(el('small',null,doc.role+' · '+doc.pages+' '+(doc.pages===1?'page':'pages')));
+    summary.appendChild(copy);
+    card.appendChild(summary);
+    const content=el('div','pdf-source-content');
+    const actions=el('div','pdf-source-actions');
+    const link=el('a','pdf-open','Open PDF');link.href=doc.file;link.target='_blank';link.rel='noopener';link.setAttribute('aria-label','Open PDF '+doc.no+' in a full browser reader');
+    actions.appendChild(link);content.appendChild(actions);
+    const frame=document.createElement('iframe');frame.className='pdf-source-frame';frame.title='Embedded schedule PDF '+doc.no+': '+doc.title;frame.loading='lazy';frame.setAttribute('data-src',doc.file+'#page=1&view=FitH');
+    content.appendChild(frame);card.appendChild(content);
+    card.addEventListener('toggle',()=>{if(card.open&&!frame.src)frame.src=frame.dataset.src;});
+    grid.appendChild(card);
+  });
+  body.appendChild(grid);
+  body.appendChild(el('div','ev','<b>Scenario trace:</b> 02 − 01 is the prospective 71-day comparison; 03 − 01 is the 37-day actual-duration comparison with original logic kept; 05 − 04 is the 35-day comparison with the 24 relationships removed.'));
+  d.appendChild(body);
   return d;
 }
 
@@ -1392,9 +1523,9 @@ function lagChart(){
   return c;
 }
 
-/* Event 2: issue → clarification → close, with the four model outcomes */
+/* Event 2: issue → clarification → close, followed by four source-backed before/after models */
 function e2Chart(){
-  const c=chartBox('The event window, and where each model puts Project Finish');
+  const c=chartBox('Event 2 window and before / after schedule scenarios');
   const W=1200,H=176,L=40,R=40;
   const t0=P('15-Mar-2026'),t1=P('08-May-2026');
   const x=d=>L+(P(d)-t0)/(t1-t0)*(W-L-R);
@@ -1421,20 +1552,62 @@ function e2Chart(){
     dt.textContent=F(m[0]).slice(0,6);s.appendChild(dt);
   });
   const hd=sv('text',{x:L,y:18,fill:'#7f95aa','font-size':'11'});hd.textContent='Event window';s.appendChild(hd);
-  const timeline=el('div','e2-timeline-scroll');timeline.appendChild(s);c.appendChild(timeline);
-  const box=el('div');box.style.marginTop='10px';
-  const maxv=Math.max(...MODELS.map(m=>m.dP))*1.06;
-  MODELS.forEach(m=>{
-    const r=el('div','lagrow');
-    r.appendChild(el('div','lagname','<span style="color:var(--soft)">'+m.n+'</span>'));
-    const tr=el('div','lagtrack');const fl=el('div','lagfill');
-    fl.style.width=(m.dP/maxv*100)+'%';fl.style.background='linear-gradient(90deg,'+m.c+'22,'+m.c+'cc)';
-    tr.appendChild(fl);r.appendChild(tr);
-    const v=el('div','lagval',sgn(m.dP));v.style.color=m.c;r.appendChild(v);
-    box.appendChild(r);
+  const timeline=el('div','e2-timeline-scroll e2-event-desktop');timeline.appendChild(s);c.appendChild(timeline);
+
+  const mobileTimeline=el('ol','e2-event-mobile');
+  marks.forEach(m=>{
+    const item=el('li',m[2]?'major':'');
+    item.appendChild(el('time',null,F(m[0]).replace(' 2026','')));
+    item.appendChild(el('span',null,m[1]));
+    mobileTimeline.appendChild(item);
   });
-  c.appendChild(box);
-  c.appendChild(el('div','lgd','Bars show movement of Project Finish from the agreed baseline of '+F(BASE.pf)+'.'));
+  c.appendChild(mobileTimeline);
+
+  const comparison=el('div','scenario-comparison');
+  comparison.appendChild(el('div','scenario-headings','<span>Scenario</span><span>Total float: two source bars</span><span>Project Finish: one common calendar scale</span>'));
+  const maxFloat=Math.max(...IFC_SCHEDULE_MOVEMENT.flatMap(d=>[Math.abs(d.tfBeforeN),Math.abs(d.tfAfterN)]));
+  const finishStart=P('21-Jun-2027'),finishEnd=P('15-Sep-2027');
+  const finishPct=value=>Math.max(0,Math.min(100,(P(value)-finishStart)/(finishEnd-finishStart)*100));
+  IFC_SCHEDULE_MOVEMENT.forEach(d=>{
+    const row=el('article','scenario-row');row.style.setProperty('--scenario-color',d.color);
+    const identity=el('div','scenario-identity');
+    identity.appendChild(el('span','scenario-source',d.source));
+    identity.appendChild(el('b',null,d.scenario));
+    identity.appendChild(el('small',null,d.sourcePair));
+    row.appendChild(identity);
+
+    const floats=el('div','scenario-floats');
+    const floatLine=(label,value,kind)=>{
+      const line=el('div','float-line '+kind);
+      line.appendChild(el('span','float-label',label));
+      const track=el('div','float-track');
+      const fill=el('div','float-fill');fill.style.width=(Math.abs(value)/maxFloat*100)+'%';track.appendChild(fill);
+      line.appendChild(track);line.appendChild(el('span','float-value',value+' d'));
+      return line;
+    };
+    floats.appendChild(floatLine('Before',d.tfBeforeN,'before'));
+    floats.appendChild(floatLine('After',d.tfAfterN,'after'));
+    floats.appendChild(el('div','float-change','Movement '+d.tfMovement));
+    row.appendChild(floats);
+
+    const finish=el('div','scenario-finish');
+    const beforePct=finishPct(d.pfBeforeIso),afterPct=finishPct(d.pfAfterIso);
+    const rail=el('div','finish-rail');rail.setAttribute('role','img');rail.setAttribute('aria-label',d.scenario+': Project Finish moves from '+d.pfBefore+' to '+d.pfAfter+', '+d.movement+' calendar days');
+    const route=el('span','finish-route');route.style.left=Math.min(beforePct,afterPct)+'%';route.style.width=Math.abs(afterPct-beforePct)+'%';rail.appendChild(route);
+    const before=el('span','finish-marker before','B');before.style.left=beforePct+'%';before.title='Before: '+d.pfBefore;rail.appendChild(before);
+    const after=el('span','finish-marker after','A');after.style.left=afterPct+'%';after.title='After: '+d.pfAfter;rail.appendChild(after);
+    finish.appendChild(rail);
+    finish.appendChild(el('div','finish-dates','<span><b>Before</b> '+d.pfBefore+'</span><span class="finish-move">'+d.pfMovement+'</span><span><b>After</b> '+d.pfAfter+'</span>'));
+    row.appendChild(finish);
+    comparison.appendChild(row);
+  });
+  const axis=el('div','finish-axis');
+  axis.appendChild(el('span',null,'21-Jun-27'));
+  axis.appendChild(el('span','axis-caption','Common Project Finish calendar scale'));
+  axis.appendChild(el('span',null,'15-Sep-27'));
+  comparison.appendChild(axis);
+  c.appendChild(comparison);
+  c.appendChild(el('div','lgd','<span><i class="legend-before"></i>Before</span><span><i class="legend-after"></i>After</span><span>B / A markers are plotted to the exact Project Finish dates. Total Float and Project Finish use the supplied workbook values.</span>'));
   return c;
 }
 
@@ -1639,7 +1812,7 @@ PANES.e2_what=()=>{
   f.appendChild(e2Chart());
   f.appendChild(scheduleMovementTable());
   f.appendChild(el('div','ev','<b>'+D('04-May-2026','18-Mar-2026')+' calendar days</b> between the revised package and closure of the resulting queries. The Engineer accepted that this period affected the critical path of the approved programme.'));
-  f.appendChild(shot('e2Det','<b>Letter 050, page 5.</b> The Engineer accepts the critical-path effect and determines 15 days against Section 1 and 12 days against Section 2.'));
+  f.appendChild(ifcScheduleSources());
   return f;
 };
 PANES.e2_models=()=>{
