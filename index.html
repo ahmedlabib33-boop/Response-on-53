@@ -538,6 +538,9 @@ mark{background:rgba(223,188,103,.3);color:#fff;padding:0 2px;border-radius:2px}
   padding:18px 18px 12px;background:linear-gradient(180deg,var(--panel),var(--panel2))}
 .chart h5{margin:0 0 14px;font-size:12.5px;color:var(--gold);font-weight:600;letter-spacing:.04em}
 .chart svg{display:block;width:100%;height:auto;overflow:visible}
+.e2-timeline-scroll{width:100%;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;
+  scrollbar-width:thin;scrollbar-color:rgba(223,188,103,.42) rgba(255,255,255,.04)}
+.e2-timeline-scroll svg{min-width:820px}
 .lgd{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;color:var(--dim)}
 .lgd i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
 
@@ -796,6 +799,7 @@ body.unlocked{
 
 <link rel="stylesheet" href="book-intelligence.css">
 <link rel="stylesheet" href="book-reader.css">
+<link rel="stylesheet" href="smart-tables.css">
 <script type="application/ld+json" id="book-intelligence-jsonld">
 {"@context":"https://schema.org","@type":"CollectionPage","name":"Book Intelligence — Claim No. 1","description":"A bilingual, source-bounded guide to eight contract, schedule, concrete and safety references used in the Claim No. 1 review.","hasPart":{"@type":"ItemList","numberOfItems":8,"itemListElement":[{"@type":"ListItem","position":1,"name":"AACE International Recommended Practice 29R-03 — Forensic Schedule Analysis"},{"@type":"ListItem","position":2,"name":"AACE International Recommended Practice 48R-06 — Schedule Constructability Review"},{"@type":"ListItem","position":3,"name":"AACE International Recommended Practice 38R-06 — Documenting the Schedule Basis"},{"@type":"ListItem","position":4,"name":"ACI 347.2R-17 — Guide for Shoring/Reshoring of Concrete Multistory Buildings"},{"@type":"ListItem","position":5,"name":"ACI 347R-14 — Guide to Formwork for Concrete"},{"@type":"ListItem","position":6,"name":"ECP 203/2018 — Egyptian Code for Design and Construction of Reinforced Concrete Structures"},{"@type":"ListItem","position":7,"name":"FIDIC Conditions of Contract for Construction, First Edition 1999"},{"@type":"ListItem","position":8,"name":"OSHA 29 CFR 1926.703 — Requirements for Cast-in-Place Concrete"}]}}
 </script>
@@ -889,6 +893,7 @@ const SHOTS={"batchTable": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2
 <script src="book-search-corpus.js"></script>
 <script src="book-search.js"></script>
 <script src="book-reader.js"></script>
+<script src="smart-tables.js"></script>
 <script>
 /* ============ entry (unchanged behaviour) ============ */
 const SETTINGS={balloonCount:34,sparkCount:48,balloonTime:5200,thanksHold:3000,symbolCount:34,symbols:["↑","✦","◇","∞","·"]};
@@ -942,7 +947,7 @@ const sgn=n=>(n>0?'+':'')+n;
 const BASE={gwf:'28-Jul-2026',pf:'06-Jul-2027'};
 
 const MODELS=[
- {k:'prosp',n:'Prospective time impact analysis',r:'Contractor submission — STR-104',gwf:'14-Oct-2026',pf:'20-Sep-2027',c:'#dfbc67',
+ {k:'prosp',n:'Prospective time impact analysis',r:'Contractor submission — STR-104',gwf:'14-Oct-2026',pf:'15-Sep-2027',c:'#dfbc67',
   m:'The event fragnet is added to the accepted programme at a data date of 17-Mar-2026, the day before the revised IFC package was issued. All accepted logic outside the fragnet is kept, so the recalculation measures the event by itself. Fragnet durations are the planned ones.'},
  {k:'actual',n:'Actual durations, logic kept',r:'Cross-check',gwf:'09-Sep-2026',pf:'12-Aug-2027',c:'#e0a349',
   m:'The same model, but using the submission and approval durations that actually occurred. The 24 pre-existing relationships stay in place. This separates the question of durations from the question of logic.'},
@@ -953,6 +958,13 @@ const MODELS=[
 ];
 MODELS.forEach(m=>{m.dG=D(m.gwf,BASE.gwf);m.dP=D(m.pf,BASE.pf);});
 const M=Object.fromEntries(MODELS.map(m=>[m.k,m]));
+
+const IFC_SCHEDULE_MOVEMENT=[
+ {source:'02 − 01',scenario:'Prospective time impact analysis',tfBefore:'-87 d',tfAfter:'-158 d',tfMovement:'-71 d',pfBefore:'6-Jul-27',pfAfter:'15-Sep-27',pfMovement:'+71 d delay'},
+ {source:'03 − 01',scenario:'Actual durations, logic kept (24 RELATION KEPT)',tfBefore:'-87 d',tfAfter:'-124 d',tfMovement:'-37 d',pfBefore:'6-Jul-27',pfAfter:'12-Aug-27',pfMovement:'+37 d delay'},
+ {source:'05 − 04',scenario:'Actual durations, logic Removed (24 RELATION rEMOVED)',tfBefore:'-73 d',tfAfter:'-108 d',tfMovement:'-35 d',pfBefore:'22-Jun-27',pfAfter:'27-Jul-27',pfMovement:'+35 d delay'},
+ {source:'ACEPM Letter 50',scenario:'ACEPM Event 02 Assessment',tfBefore:'-87 d',tfAfter:'-99 d',tfMovement:'-12 d',pfBefore:'6-Jul-27',pfAfter:'18-Jul-27',pfMovement:'+12 d delay'}
+];
 
 const B2={gb:'26-May-2026',ga:'29-Sep-2026',pb:'12-May-2027',pa:'06-Sep-2027'};
 B2.dG=D(B2.ga,B2.gb); B2.dP=D(B2.pa,B2.pb);
@@ -1383,27 +1395,33 @@ function lagChart(){
 /* Event 2: issue → clarification → close, with the four model outcomes */
 function e2Chart(){
   const c=chartBox('The event window, and where each model puts Project Finish');
-  const W=1000,H=150,L=14,R=14;
-  const t0=P('01-Mar-2026'),t1=P('01-Jul-2026');
+  const W=1200,H=176,L=40,R=40;
+  const t0=P('15-Mar-2026'),t1=P('08-May-2026');
   const x=d=>L+(P(d)-t0)/(t1-t0)*(W-L-R);
   const s=sv('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Event 2 window'});
   s.appendChild(sv('rect',{x:x('18-Mar-2026'),y:34,width:x('04-May-2026')-x('18-Mar-2026'),height:26,
     fill:'rgba(223,188,103,.16)',stroke:'rgba(223,188,103,.45)',rx:2}));
   const wl=sv('text',{x:(x('18-Mar-2026')+x('04-May-2026'))/2,y:51,fill:'#ffe19a','font-size':'12','text-anchor':'middle','font-weight':'600'});
   wl.textContent=D('04-May-2026','18-Mar-2026')+' days from revised package to closure';s.appendChild(wl);
-  const marks=[['18-Mar-2026','Revised IFC package',1],['31-Mar-2026','Contractor notifies',0],
-    ['04-Apr-2026','RFI 1',0],['16-Apr-2026','Notice of claim',0],['30-Apr-2026','Modified package',1],['04-May-2026','RFI closed',1]];
+  const marks=[
+    ['18-Mar-2026','Revised IFC package',1,90,'middle',0],
+    ['31-Mar-2026','Contractor notifies',0,134,'end',-7],
+    ['04-Apr-2026','RFI 1',0,92,'start',7],
+    ['16-Apr-2026','Notice of claim',0,140,'middle',0],
+    ['30-Apr-2026','Modified package',1,92,'end',-7],
+    ['04-May-2026','RFI closed',1,140,'start',7]
+  ];
   marks.forEach((m,i)=>{
     s.appendChild(sv('line',{x1:x(m[0]),x2:x(m[0]),y1:30,y2:64,stroke:m[2]?'#dfbc67':'rgba(255,255,255,.28)','stroke-width':m[2]?2:1}));
-    const y=i%2?92:78;
+    const y=m[3];
     s.appendChild(sv('line',{x1:x(m[0]),x2:x(m[0]),y1:64,y2:y-9,stroke:'rgba(255,255,255,.14)'}));
-    const tx=sv('text',{x:x(m[0]),y:y,fill:m[2]?'#eef3f8':'#7f95aa','font-size':'10.5','text-anchor':'middle'});
+    const tx=sv('text',{x:x(m[0])+m[5],y:y,fill:m[2]?'#eef3f8':'#7f95aa','font-size':'10.5','text-anchor':m[4]});
     tx.textContent=m[1];s.appendChild(tx);
-    const dt=sv('text',{x:x(m[0]),y:y+13,fill:'#7f95aa','font-size':'10','text-anchor':'middle'});
+    const dt=sv('text',{x:x(m[0])+m[5],y:y+13,fill:'#7f95aa','font-size':'10','text-anchor':m[4]});
     dt.textContent=F(m[0]).slice(0,6);s.appendChild(dt);
   });
   const hd=sv('text',{x:L,y:18,fill:'#7f95aa','font-size':'11'});hd.textContent='Event window';s.appendChild(hd);
-  c.appendChild(s);
+  const timeline=el('div','e2-timeline-scroll');timeline.appendChild(s);c.appendChild(timeline);
   const box=el('div');box.style.marginTop='10px';
   const maxv=Math.max(...MODELS.map(m=>m.dP))*1.06;
   MODELS.forEach(m=>{
@@ -1418,6 +1436,24 @@ function e2Chart(){
   c.appendChild(box);
   c.appendChild(el('div','lgd','Bars show movement of Project Finish from the agreed baseline of '+F(BASE.pf)+'.'));
   return c;
+}
+
+function scheduleMovementTable(){
+  const block=el('section','schedule-movement');
+  block.appendChild(el('h3','s','Schedule comparison from the supplied workbook'));
+  block.appendChild(el('p','lede','The table reproduces the four comparisons in IFC sch movement.xlsx. It keeps Total Float and Project Finish movements side by side.'));
+  block.appendChild(tbl([
+    {h:'Comparison / Source'},{h:'Schedule Scenario'},{h:'Total Float — Before',cls:'num'},
+    {h:'Total Float — After',cls:'num'},{h:'TF Movement',cls:'num'},
+    {h:'Project Finish — Before',cls:'num'},{h:'Project Finish — After',cls:'num'},
+    {h:'Project Finish Movement',cls:'num'}
+  ],IFC_SCHEDULE_MOVEMENT.map(d=>[
+    '<span class="str">'+d.source+'</span>',d.scenario,d.tfBefore,d.tfAfter,
+    '<span class="pill p-red">'+d.tfMovement+'</span>',d.pfBefore,d.pfAfter,
+    '<span class="pill p-amb">'+d.pfMovement+'</span>'
+  ]),'1180px'));
+  block.appendChild(el('div','ev','<b>Source:</b> IFC sch movement.xlsx, Sheet1, cells A1:H5. Dates retain the workbook display format.'));
+  return block;
 }
 function wf(axis){
   const v=k=>axis==='g'?M[k].dG:M[k].dP;
@@ -1601,6 +1637,7 @@ PANES.e2_what=()=>{
   f.appendChild(shot('event2Evidence','<b>Event No. 2 — combined evidence.</b> Consultant reply sheets for STR-044 / STR-046 / STR-054 / STR-055 together with the ACEPM planning analysis and schedule extracts used to compare the approval dates.'));
 
   f.appendChild(e2Chart());
+  f.appendChild(scheduleMovementTable());
   f.appendChild(el('div','ev','<b>'+D('04-May-2026','18-Mar-2026')+' calendar days</b> between the revised package and closure of the resulting queries. The Engineer accepted that this period affected the critical path of the approved programme.'));
   f.appendChild(shot('e2Det','<b>Letter 050, page 5.</b> The Engineer accepts the critical-path effect and determines 15 days against Section 1 and 12 days against Section 2.'));
   return f;
@@ -2383,6 +2420,25 @@ Object.assign(AR_EXACT,{
   "Use the verified formwork-removal provisions as the local technical baseline for minimum timing and engineering checks. The requirements vary with member type, span, achieved strength, temperature and loading, so the actual construction record still controls the conclusion.":"استخدم أحكام فك الشدات المتحقق منها كأساس فني محلي للحد الأدنى للمدة والفحوص الهندسية. تختلف المتطلبات حسب نوع العنصر والبحر والمقاومة المتحققة ودرجة الحرارة والأحمال، لذلك يظل سجل التنفيذ الفعلي هو الحاكم للنتيجة.",
   "What special condition applies when additional loads will be imposed?":"ما الشرط الخاص عند توقع أحمال إضافية؟",
   "Check the special-precautions clause before loading supported work or removing supports. The page requires additional engineering control where construction loads or exceptional conditions exist; approval should be tied to the actual load path and achieved concrete strength.":"راجع بند الاحتياطات الخاصة قبل تحميل الأعمال المدعومة أو إزالة الدعامات. تتطلب الصفحة ضبطًا هندسيًا إضافيًا عند وجود أحمال تنفيذ أو ظروف استثنائية؛ ويجب ربط الموافقة بمسار الحمل الفعلي ومقاومة الخرسانة المتحققة."
+});
+Object.assign(AR_EXACT,{
+  "Against 71 days submitted. Awarded at Project Finish under Letter 050.":"مقابل 71 يومًا مقدمة. تم منحها عند معلم انتهاء المشروع بموجب الخطاب 050.",
+  "The difference between the submitted 71 days and the determined 12 days is 59 days at Project Finish. It does not come from one disagreement. It splits into three, and they are not of equal weight.":"الفارق بين 71 يومًا المقدمة و12 يومًا التي تم تحديدها هو 59 يومًا عند انتهاء المشروع. ولا ينتج هذا الفارق عن خلاف واحد، بل ينقسم إلى ثلاث مسائل ليست متساوية في وزنها.",
+  "Schedule comparison from the supplied workbook":"مقارنة البرنامج الزمني من ملف العمل المرفق",
+  "The table reproduces the four comparisons in IFC sch movement.xlsx. It keeps Total Float and Project Finish movements side by side.":"يعرض الجدول المقارنات الأربع الواردة في ملف IFC sch movement.xlsx، ويضع حركة السماح الكلي وحركة انتهاء المشروع جنبًا إلى جنب.",
+  "Comparison / Source":"المقارنة / المصدر",
+  "Schedule Scenario":"سيناريو البرنامج الزمني",
+  "Total Float — Before":"السماح الكلي — قبل",
+  "Total Float — After":"السماح الكلي — بعد",
+  "TF Movement":"حركة السماح الكلي",
+  "Project Finish — Before":"انتهاء المشروع — قبل",
+  "Project Finish — After":"انتهاء المشروع — بعد",
+  "Project Finish Movement":"حركة انتهاء المشروع",
+  "Actual durations, logic kept (24 RELATION KEPT)":"المدد الفعلية، مع الإبقاء على 24 علاقة منطقية",
+  "Actual durations, logic Removed (24 RELATION rEMOVED)":"المدد الفعلية، مع إزالة 24 علاقة منطقية",
+  "ACEPM Event 02 Assessment":"تقييم ACEPM للحدث 02",
+  "Source:":"المصدر:",
+  "IFC sch movement.xlsx, Sheet1, cells A1:H5. Dates retain the workbook display format.":"ملف IFC sch movement.xlsx، الورقة Sheet1، الخلايا A1:H5. تحتفظ التواريخ بتنسيق العرض في ملف العمل."
 });
 const btn=document.getElementById('langToggleTop');
 if(!btn)return;
