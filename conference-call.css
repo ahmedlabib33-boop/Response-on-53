@@ -77,22 +77,27 @@
   width:100%;min-height:44px;border:1px solid var(--line);border-radius:9px;background:#091522;color:white;padding:10px 12px;font:600 14px "Segoe UI",Arial,sans-serif
 }
 .conference-field input:focus{outline:2px solid rgba(223,188,103,.35);border-color:var(--gold)}
-.conference-primary,.conference-action{
+.conference-primary,.conference-secondary,.conference-action{
   min-height:44px;border:1px solid var(--line);border-radius:9px;background:#122236;color:var(--soft);padding:9px 12px;font:800 12px "Segoe UI",Arial,sans-serif;cursor:pointer;touch-action:manipulation
 }
 .conference-primary{border-color:var(--gold);background:linear-gradient(135deg,#8a6725,#c69b45);color:#07111d;font-size:13px}
-.conference-primary:hover,.conference-primary:focus-visible,.conference-action:hover,.conference-action:focus-visible{filter:brightness(1.12);outline:2px solid rgba(255,225,154,.35);outline-offset:1px}
+.conference-secondary{border-color:var(--call-teal);background:rgba(95,176,165,.13);color:#b9f4ec;font-size:13px}
+.conference-starts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.conference-primary:hover,.conference-primary:focus-visible,.conference-secondary:hover,.conference-secondary:focus-visible,.conference-action:hover,.conference-action:focus-visible{filter:brightness(1.12);outline:2px solid rgba(255,225,154,.35);outline-offset:1px}
 .conference-disclosure{padding:10px 12px;border-inline-start:3px solid var(--call-teal);background:rgba(95,176,165,.08);color:#a9bdca;font-size:11px;line-height:1.55}
 
 .conference-live{display:none;min-height:0;flex:1;flex-direction:column}
 .conference-dock.connected .conference-setup{display:none}
 .conference-dock.connected .conference-live{display:flex}
-.conference-toolbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:8px;border-bottom:1px solid var(--line2)}
+.conference-toolbar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:8px;border-bottom:1px solid var(--line2)}
 .conference-action{min-height:38px;padding:7px 5px;font-size:10px}
 .conference-action.active{border-color:var(--call-teal);color:#aef0e6;background:rgba(95,176,165,.14)}
 .conference-action.warn{border-color:rgba(232,115,95,.55);color:#ffb5a9}
-.conference-frame{position:relative;min-height:220px;flex:1;background:#03070c}
-.conference-frame iframe{display:block;width:100%!important;height:100%!important;border:0}
+.conference-sync-panel{display:grid;min-height:220px;flex:1;place-content:center;gap:10px;padding:28px;text-align:center;background:radial-gradient(circle at 50% 10%,rgba(95,176,165,.13),transparent 62%),#07111d}
+.conference-sync-panel strong{color:var(--gold2);font:700 22px/1.2 var(--serif)}
+.conference-sync-panel span{color:var(--body);font-size:12px;line-height:1.65}
+.conference-peer-state{display:inline-flex;align-items:center;justify-content:center;justify-self:center;min-height:28px;padding:4px 10px;border:1px solid rgba(95,176,165,.35);border-radius:999px;color:#aef0e6;background:rgba(95,176,165,.09);font-size:10px;font-style:normal;font-weight:800}
+.conference-remote-audio{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
 .conference-tip{padding:8px 11px;border-top:1px solid var(--line2);color:var(--dim);font-size:10px;line-height:1.45}
 
 .conference-request{
@@ -134,8 +139,12 @@ body.arabic-mode .conference-dock{right:auto;left:max(16px,env(safe-area-inset-l
   .conference-dock.expanded{height:calc(100dvh - 8px)}
   body.arabic-mode .conference-dock{left:0;right:0}
   .conference-head{cursor:default}
-  .conference-toolbar{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .conference-frame{min-height:190px}
+  .conference-toolbar{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .conference-sync-panel{min-height:190px;padding:22px 18px}
+}
+
+@media (max-width:390px){
+  .conference-starts{grid-template-columns:1fr}
 }
 
 @media print{
